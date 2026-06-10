@@ -1,7 +1,34 @@
-node_modules
-*.log*
-.nuxt
-.nitro
-.cache
-.output
+# IDE / editor
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Nuxt / Vue / Node
+node_modules/
+.nuxt/
+.nitro/
+.output/
+.cache/
+dist/
+build/
+*.tsbuildinfo
+coverage/
+
+# Env / secrets
 .env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# Local data
+*.sqlite
+*.sqlite-*
+*.db
