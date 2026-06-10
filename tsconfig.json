@@ -1,0 +1,19 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "@types/node",  // Node.js global types
+    ]
+  },
+  "include": [
+    "nuxt.config.ts",
+    "vue-shim.d.ts",
+    "components.d.ts",
+    "server/**/*",
+    "pages/**/*",
+    "plugins/**/*",
+    "composables/**/*",         // ✅ In case you use custom composables
+    ".nuxt/types/**/*.d.ts",    // ✅ Ensures Nuxt auto-import types get picked up
+    "*.vue"                     // ✅ Add Vue files directly for safety
+  ]
+}
