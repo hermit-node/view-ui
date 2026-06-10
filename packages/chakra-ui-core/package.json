@@ -1,0 +1,73 @@
+{
+  "name": "@chakra-ui/vue",
+  "version": "0.14.0-vue3-alpha.0",
+  "description": "Build Accessible and Responsive Vue.js websites and applications with speed \u26a1\ufe0f",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "types/index.d.ts",
+  "sideEffects": false,
+  "maintainers": [
+    "Jonathan Bakebwa <jonas@akkadu-team.com>"
+  ],
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
+  },
+  "license": "MIT",
+  "homepage": "https://vue.chakra-ui.com",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm clean && rollup -c --environment MINIFY",
+    "dev": "rollup --config rollup.dev.config.js --watch",
+    "test": "echo testing ...",
+    "clean": "rimraf ./dist"
+  },
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
+  "bundle-phobia": {
+    "max-size": "85KB",
+    "max-overall-size": "85KB"
+  },
+  "dependencies": {
+    "@chakra-ui/styled-system": "^1.15.0",
+    "@chakra-ui/theme-vue": "workspace:*",
+    "@popperjs/core": "^2.11.8",
+    "animejs": "^3.2.2",
+    "aria-hidden": "^1.2.6",
+    "breadstick": "^0.2.14",
+    "color": "^4.2.3",
+    "focus-trap": "^7.6.6",
+    "lodash-es": "^4.17.21",
+    "v-scroll-lock": "^1.1.0"
+  },
+  "peerDependencies": {
+    "@emotion/css": "^11.0.0",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@emotion/css": "^11.0.0",
+    "@fortawesome/fontawesome-common-types": "^0.2.36",
+    "@vue/compiler-sfc": "^3.5.0",
+    "rimraf": "^6.0.1",
+    "vue": "^3.5.0"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "ui",
+    "design-system",
+    "vue-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "styled-system"
+  ]
+}

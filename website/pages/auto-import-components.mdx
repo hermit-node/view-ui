@@ -1,0 +1,146 @@
+import SEO from '../components/SEO'
+import { CodeGroup, CodeTab } from '~/components/code'
+
+<SEO
+  title="Auto-import Chakra components"
+  description="Use the chakra-loader webpack plugin to automatically import and register Chakra components used in your templates"
+/>
+
+# Auto-importing Chakra UI Vue components
+We know that it can be cumbersome to import every single Chakra component you want to use in your Vue templates. Chakra UI offers webpack plugin solution that allows
+you to directly consume Chakra UI Vue components without manually importing and globally registering all Chakra components.
+
+This provides a better developer experience without sacrificing your application's bundle-size performance.
+
+<carbon-ad />
+
+## Installation
+
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add -D chakra-loader
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install chakra-loader --save-dev
+  </CodeTab>
+</CodeGroup>
+
+## Usage
+If you're using webpack with Vue CLI or Nuxt.js for your Chakra project, import the `ChakraLoaderPlugin` from the `chakra-loader` package and add it to your `vue.config.js` file.
+
+### With Vue CLI
+```js
+/* vue.config.js */
+
+const { ChakraLoaderPlugin } = require('chakra-loader')
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new ChakraLoaderPlugin()
+    ]
+  }
+}
+
+```
+### With `webpack.config.js`
+```js
+/* webpack.config.js */
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { ChakraLoaderPlugin } = require('chakra-loader')
+
+module.exports = {
+  // ... other options
+  plugins: [
+    new VueLoaderPlugin(),
+    new ChakraLoaderPlugin()
+  ]
+}
+```
+
+### With Nuxt.js
+As of `@chakra-ui/nuxt@0.1.0`, you can enable and disable component auto-import using the `chakra.config.autoImport: {Boolean}` property of your `nuxt.config.js` file.
+
+> This change is only supported for `@chakra-ui/nuxt@^0.1.0`. We recommend upgrading your Nuxt module version to `^0.1.0`.
+
+```js
+/* nuxt.config.js */
+
+export default {
+  // ...
+  chakra: {
+    config: {
+      /**
+       * Setting this value to false disables
+       * component auto-import in your Vue templates
+       * @type {Boolean}
+       **/
+      autoImport: true
+    }
+  }
+}
+```
+
+For older versions of `@chakra-ui/nuxt`, you can enable component auto importing yourself:
+
+```js
+/* nuxt.config.js */
+
+import { ChakraLoaderPlugin } from 'chakra-loader'
+
+export default {
+  // ...
+  build: {
+    extend(config) {
+      config.plugins.push(
+        new ChakraLoaderPlugin()
+      )
+    }
+  }
+}
+```
+
+
+
+## How it works
+`ChakraLoaderPlugin` will analyse your SFC template during development and at build time, and scan it for all Chakra UI Vue components that you consume in it. The loader will then proceed to automatically import those components and register them while preserving treeshaking.
+
+For example, consider the component below, `Component.vue` which uses Chakra's `CBox` and `CButton` components.
+```vue
+<template>
+  <c-box p="3" m="auto" bg="tomato" font-weight="bold" color="white">
+    Chakra UI Vue Box
+  </c-box>
+  <c-button>
+    Hello world!
+  </c-button>
+</template>
+```
+
+Using `chakra-loader` will yield:
+```vue
+<template>
+  <c-box p="3" m="auto" bg="tomato" font-weight="bold" color="white">
+    Chakra UI Vue Box
+  </c-box>
+  <c-button>
+    Hello world!
+  </c-button>
+</template>
+
+<script>
+// 👇🏽 Automatically imports and registers
+//    the CBox and CButton components from Chakra UI Vue. 🎉
+
+import { CBox, CButton } from '@chakra-ui/vue'
+
+export default {
+  name: 'App',
+  components: {
+    CBox,
+    CButton
+  }
+}
+</script>
+```

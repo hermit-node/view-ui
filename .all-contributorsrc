@@ -1,0 +1,304 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 50,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "codebender828",
+      "name": "Jonathan Bakebwa",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/21237954?v=4",
+      "profile": "https://jbakebwa.dev",
+      "contributions": [
+        "code",
+        "test",
+        "doc"
+      ]
+    },
+    {
+      "login": "koca",
+      "name": "Mesut",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/342666?v=4",
+      "profile": "http://twitter.com/imesutkoca",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "DominusKelvin",
+      "name": "Omereshone Kelvin Oghenerhoro",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/24433274?v=4",
+      "profile": "http://bit.ly/becomeworldclass",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    },
+    {
+      "login": "convenientstop",
+      "name": "Eric Carboni",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1885157?v=4",
+      "profile": "https://convenientstop.netlify.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "ankorGH",
+      "name": "ankorGH",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28383750?v=4",
+      "profile": "http://inusahharis.netlify.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "peoray",
+      "name": "Emmanuel Raymond",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/23735423?v=4",
+      "profile": "https://peoray.dev",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "harrygulliford",
+      "name": "Harry Gulliford",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5051286?v=4",
+      "profile": "http://www.harrygulliford.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Anyitechs",
+      "name": "IFEANYICHUKWU AMAJUOYI",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/37679025?v=4",
+      "profile": "https://github.com/Anyitechs",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "pgrimaud",
+      "name": "Pierre Grimaud",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1866496?v=4",
+      "profile": "https://github.com/pgrimaud",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Easybuoy",
+      "name": "Ekunola Ezekiel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/24660100?v=4",
+      "profile": "https://ezekielekunola.com",
+      "contributions": [
+        "tool",
+        "doc"
+      ]
+    },
+    {
+      "login": "lauragift21",
+      "name": "Gift Egwuenu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17781315?v=4",
+      "profile": "https://www.giftegwuenu.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jbienesdev",
+      "name": "Joshua Angelo Bienes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17470909?v=4",
+      "profile": "https://jbienesdev.netlify.app/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "saptaksengupta",
+      "name": "Saptak Sengupta",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/21155006?v=4",
+      "profile": "https://github.com/saptaksengupta",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "kurotanshi",
+      "name": "Kuro Hsu",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/362912?v=4",
+      "profile": "https://kuro.tw",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    },
+    {
+      "login": "Anmol270900",
+      "name": "Anmol",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/43845658?v=4",
+      "profile": "https://github.com/Anmol270900",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "vishnumohanrk",
+      "name": "Vishnumohan R K",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51525368?v=4",
+      "profile": "https://github.com/vishnumohanrk",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "freality",
+      "name": "Ken Love",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15808?v=4",
+      "profile": "https://github.com/freality",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "gbschalch",
+      "name": "Guilherme Schalch",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/13435327?v=4",
+      "profile": "http://www.linkedin.com/in/schalch",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "be-codified",
+      "name": "Žiga Vukčevič",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10107183?v=4",
+      "profile": "http://www.be-codified.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "carwack",
+      "name": "Sybren W",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16015740?v=4",
+      "profile": "https://github.com/carwack",
+      "contributions": [
+        "doc",
+        "content",
+        "example",
+        "code"
+      ]
+    },
+    {
+      "login": "odanado",
+      "name": "odanado",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6040962?v=4",
+      "profile": "https://github.com/odanado",
+      "contributions": [
+        "code",
+        "tool"
+      ]
+    },
+    {
+      "login": "IHIutch",
+      "name": "Jonathan Hutchison",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20825047?v=4",
+      "profile": "https://github.com/IHIutch",
+      "contributions": [
+        "code",
+        "bug",
+        "ideas",
+        "test",
+        "doc"
+      ]
+    },
+    {
+      "login": "HoukasaurusRex",
+      "name": "JT Houk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23695312?v=4",
+      "profile": "https://jt.houk.space/",
+      "contributions": [
+        "doc",
+        "platform"
+      ]
+    },
+    {
+      "login": "vincentpalma",
+      "name": "Vincent Palma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10133632?v=4",
+      "profile": "https://github.com/vincentpalma",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "MaySoMusician",
+      "name": "MaySoMusician",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34566290?v=4",
+      "profile": "https://github.com/MaySoMusician",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MWFIAE",
+      "name": "Martin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6072971?v=4",
+      "profile": "https://github.com/MWFIAE",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "ejirocodes",
+      "name": "Ejiro Asiuwhu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45228014?v=4",
+      "profile": "http://linkedin.com/in/ejiro-asiuwhu",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "abelnnieva",
+      "name": "Abel N. Nieva",
+      "avatar_url": "https://avatars.githubusercontent.com/u/931497?v=4",
+      "profile": "https://github.com/abelnnieva",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "simpletrontdip",
+      "name": "Lê Thông",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20158564?v=4",
+      "profile": "https://github.com/simpletrontdip",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Pwuts",
+      "name": "Reinier van der Leer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12185583?v=4",
+      "profile": "https://pwuts.nl/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "chakra-ui-vue",
+  "projectOwner": "chakra-ui",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
+  "commitConvention": "none"
+}

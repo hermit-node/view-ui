@@ -1,0 +1,323 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Menu"
+  description="An accessible dropdown menu for the common dropdown menu button design pattern."
+/>
+
+# Menu
+
+The `CMenu` component is an accessible dropdown menu for the common dropdown menu button design pattern.
+Menu uses roving tabindex for focus management.
+
+See `CMenu`'s [accessibility report](https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CMenu/accessibility.md)
+
+<carbon-ad />
+
+## Import
+
+Chakra UI exports 8 components for rendering menus:
+
+- `CMenu`: The wrapper component that provides context, state, and focus
+  management.
+- `CMenuList`: The wrapper for the menu items. Must be a direct child of `CMenu`.
+- `CMenuButton`: The trigger for the menu list. Must be a direct child of `CMenu`.
+- `CMenuItem`: The trigger that handles menu selection. Must be a direct child of
+  a `CMenuList`.
+- `CMenuGroup`: A wrapper to group-related menu items.
+- `CMenuDivider`: A visual separator for menu items and groups.
+- `CMenuOptionGroup`: A wrapper for checkable menu items (radio and checkbox)
+- `CMenuItemOption`: The checkable menu item, to be used with `CMenuOptionGroup`
+
+```js
+import {
+  CMenu,
+  CMenuButton,
+  CMenuList,
+  CMenuItem,
+  CMenuGroup,
+  CMenuDivider,
+  CMenuOptionGroup,
+  CMenuItemOption,
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+```vue live=true
+<c-menu>
+  <c-menu-button right-icon="chevron-down">
+    Actions
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-item>Download</c-menu-item>
+    <c-menu-item>Create a Copy</c-menu-item>
+    <c-menu-item>Mark as Draft</c-menu-item>
+    <c-menu-item>Delete</c-menu-item>
+    <c-menu-item as="a" href="#">
+      Attend a Workshop
+    </c-menu-item>
+  </c-menu-list>
+</c-menu>
+```
+
+
+### Accessing the internal state
+
+To access the internal state of the `CMenu`, you can use the default [scoped slot](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots-with-the-slot-scope-Attribute) to access the `isOpen` value of
+the Menu component. `isOpen` reflects the current open or closed state of the `CMenu` component.
+
+```vue live=true
+<template>
+  <c-menu v-slot="{ isOpen }">
+    <c-menu-button :is-active="isOpen" :right-icon="isOpen ? 'chevron-up' : 'chevron-down'">
+      {{ isOpen ? 'Close' : 'Open' }}
+    </c-menu-button>
+    <c-menu-list>
+      <c-menu-item @click="alert('Kage bushin no jutsu!!! 💨👯👯👯👯💨')" >
+        Copy to clipboard
+      </c-menu-item>
+      <c-menu-item @click="alert('Katon! Gou ka kyuu no jutsu!!! 🔥')">
+        Burn to disc
+      </c-menu-item>
+    </c-menu-list>
+  </c-menu>
+</template>
+
+<script>
+export default {
+  methods: {
+    alert(value) {
+      return alert(value)
+    }
+  }
+}
+</script>
+```
+
+
+### Letter Navigation
+
+When focus is on the `CMenuButton` or within the `CMenuList` and you type a letter
+key, a search begins. Focus will move to the first `CMenuItem` that starts with
+the letter you typed.
+
+> Open the menu, try and type any letter, say "S" to see the focus movement.
+
+```vue live=true
+<c-menu>
+  <c-menu-button
+    px="4"
+    py="2"
+    transition="all 0.2s"
+    rounded="md"
+    border-width="1px"
+    :_hover="{ bg: 'gray.100' }"
+    :_expanded="{ bg: 'red.100' }"
+    :_focus="{ outline: 0, boxShadow: 'outline' }"
+  >
+    File <c-icon name="chevron-down" />
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-item>New File</c-menu-item>
+    <c-menu-item>New Window</c-menu-item>
+    <c-menu-divider />
+    <c-menu-item>Open...</c-menu-item>
+    <c-menu-item>Save File</c-menu-item>
+  </c-menu-list>
+</c-menu>
+```
+
+### Another example.
+
+```vue live=true
+<c-menu>
+  <c-menu-button as="button" right-icon="chevron-down">
+    Your Cats
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-item h="48px">
+      <c-image
+        size="2rem"
+        rounded="full"
+        src="https://placekitten.com/100/100"
+        alt="Fluffybuns the destroyer"
+        mr="12px"
+      />
+      <span>Fluffybuns the Destroyer</span>
+    </c-menu-item>
+    <c-menu-item h="40px">
+      <c-image
+        size="2rem"
+        rounded="full"
+        src="https://placekitten.com/120/120"
+        alt="Simon the pensive"
+        mr="12px"
+      />
+      <span>Simon the pensive</span>
+    </c-menu-item>
+  </c-menu-list>
+</c-menu>
+```
+
+### MenuGroup
+
+To group related `CMenuItems`, use the `CMenuGroup` component and pass it a label
+for the group name.
+
+```vue live=true
+<c-menu>
+  <c-menu-button right-icon="chevron-down" variant-color="pink">
+    Profile
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-group title="Profile">
+      <c-menu-item>My Account</c-menu-item>
+      <c-menu-item>Payments </c-menu-item>
+    </c-menu-group>
+    <c-menu-divider />
+    <c-menu-group title="Help">
+      <c-menu-item>Docs</c-menu-item>
+      <c-menu-item>FAQ</c-menu-item>
+    </c-menu-group>
+  </c-menu-list>
+</c-menu>
+```
+
+## Menu option groups
+
+You can compose a menu for table headers to help with sorting and filtering
+options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
+
+```vue live=true
+<c-menu :close-on-select="false">
+  <c-menu-button variant-color="blue">
+    Menu Item
+  </c-menu-button>
+  <c-menu-list min-width="240px">
+    <c-menu-option-group default-value="asc" title="Order" type="radio">
+      <c-menu-item-option value="asc">Ascending</c-menu-item-option>
+      <c-menu-item-option value="desc">Descending</c-menu-item-option>
+    </c-menu-option-group>
+    <c-menu-divider />
+    <c-menu-option-group title="Country" type="checkbox">
+      <c-menu-item-option value="email">Email</c-menu-item-option>
+      <c-menu-item-option value="phone">Phone</c-menu-item-option>
+      <c-menu-item-option value="country">Country</c-menu-item-option>
+    </c-menu-option-group>
+  </c-menu-list>
+</c-menu>
+```
+
+## Accessibility
+
+### Keyboard Interaction
+
+| Key                | Action                                                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enter` or `Space` | When `MenuButton` receives focus, opens the menu, and places focus on the first menu item                                                |
+| `ArrowDown`        | When `MenuButton` receives focus, opens the menu, and moves focus to the first menu item                                                 |
+| `ArrowUp`          | When `MenuButton` receives focus, opens the menu, and moves focus to the last menu item                                                  |
+| `Escape`           | When the menu is open, closes the menu and sets focus to the `MenuButton`                                                               |
+| `Tab`              | no effect                                                                                                                               |
+| `Home`             | When the menu is open, moves focus to the first item.                                                                                   |
+| `End`              | When the menu is open, moves focus to the last item.                                                                                    |
+| `A-Z` or `a-z`     | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists. |
+
+### ARIA roles
+
+**For `MenuButton`:**
+
+- It has `role` set to `button`.
+- It has aria-haspopup set to either `menu`.
+- When the menu is displayed, `MenuButton` has `aria-expanded` set to `true`.
+- `MenuButton` has `aria-controls` set to the `id` of the `MenuList`.
+
+**For `MenuList`:**
+
+- It contains the `MenuItem` has role `menu`.
+
+
+## API
+
+### `CMenu` Props
+
+| Name          | Type              | Default | Description                                                  |
+| ------------- | ----------------- | ------- | ------------------------------------------------------------ |
+| isOpen        | `boolean`         |         | If `true`, the menu will be opened                           |
+| autoSelect    | `boolean`         | `true`  | The menu will select the first enabled item when it opens    |
+| closeOnBlur   | `boolean`         | `true`  | If `true`, the menu will close on outside click or blur      |
+| closeOnSelect | `boolean`         | `true`  | If `true`, the menu will close on menu item select           |
+
+### `CMenuButton` Events
+
+| Name       | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| `@click`   | Event emitted when `CMenuButton` is clicked                          |
+| `@keydown` | Event emitted when the key is pressed while `CMenuButton` is focused |
+
+### `CMenuList` Props
+
+| Name      | Type                      | Description                                                       |
+| --------- | ------------------------- | ----------------------------------------------------------------- |
+| placement | `PopperJS.placement`      | The placement of the `CMenuList`                                  |
+
+### `CMenuList` Events
+
+| Name       | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| `@click`   | Event emitted when `CMenuList` is clicked                            |
+| `@blur`    | Event emitted when focus is removed from the `CMenuList`             |
+
+
+### `CMenuItem` Props
+
+| Name       | Type                                            | Description                                               |
+| ---------- | ----------------------------------------------- | --------------------------------------------------------- |
+| isDisabled | `boolean`                                       | If `true`, the menu item will be disabled                 |
+| role       | `menuitem`, `menuitemradio`, `menuitemcheckbox` | The ARIA role of the menu item                             |
+
+### `CMenuItem` Events
+
+| Name       | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `@click`   | Event emitted when `CMenuItem` is clicked                            |
+| `@keydown` | Event emitted when the key is pressed while `CMenuItem` is focused   |
+
+
+### `CMenuGroup` Props
+
+| Name     | Type              | Description                   |
+| -------- | ----------------- | ----------------------------- |
+| title    | `string`          | The title of the menu group   |
+
+### `CMenuOptionGroup` Props
+
+| Name         | Type                                          | Description                                             |
+| ------------ | --------------------------------------------- | ------------------------------------------------------- |
+| title        | `string`                                      | Title of the option group                               |
+| type         | `radio`, `checkbox`                           | Used to add roles `menuitemradio` or `menuitemcheckbox` |
+| defaultValue | `string`, `number`, `Array<string or number>` | The initial value of the option group                   |
+| value        | `string`, `number`, `Array<string or number>` | The value of the option group                           |
+
+### `CMenuOptionGroup` Events
+
+| Name       | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `@change`  | Event emitted when the item selection changes are clicked             |
+| `@keydown` | Event emitted when the key is pressed while `CMenuItem` is focused   |
+
+### `CMenuItemOption` Props
+
+| Name         | Type                      | Description                                             |
+| ------------ | ------------------------- | ------------------------------------------------------- |
+| isDisabled   | `boolean`                 | If `true`, the menu item will be disabled               |
+| value        | `StringOrNumber`          | Used to add roles `menuitemradio` or `menuitemcheckbox` |
+| type         | `radio`, `checkbox`       | The initial value of the option item                    |
+
+### `CMenuOptionGroup` Events
+
+| Name           | Description                                                          |
+| -------------- | -------------------------------------------------------------------- |
+| `@mouseleave`  | Event emitted when the mouse enters the `CMenuOptionGroup`            |
+| `@mouseenter`  | Event emitted when the mouse leaves the `CMenuOptionGroup`            |

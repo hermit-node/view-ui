@@ -1,0 +1,105 @@
+import { CodeGroup, CodeTab } from '~/components/code'
+
+# Getting Started
+
+Install Chakra UI Vue and its peer dependency, `@emotion/css`
+
+<br />
+
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add @chakra-ui/vue @emotion/css
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install @chakra-ui/vue @emotion/css
+  </CodeTab>
+</CodeGroup>
+
+
+> If you are using @chakra-ui/vue@^0.6 and below, you need to install `emotion` instead of `@emotion/css`
+
+<carbon-ad />
+
+### With Vue CLI plugin
+
+If you are using Vue CLI 3, then you can install Chakra UI and get a base setup using the Chakra UI [plugin](https://www.npmjs.com/package/vue-cli-plugin-chakra-ui).
+
+```bash
+vue add chakra-ui
+```
+
+## Usage
+
+**1. Import the Chakra UI plugin in your `main.js` file.**
+
+In order to use Chakra, you need to wrap your main application inside the Chakra `CThemeProvider` component.
+You can do so as shown below.
+
+```js
+import Vue from 'vue'
+import Chakra, { CThemeProvider } from '@chakra-ui/vue'
+import App from './App.vue'
+
+Vue.use(Chakra)
+
+new Vue({
+  el: '#app',
+  render: (h) => h(CThemeProvider, [h(App)])
+}).$mount()
+```
+
+## Injecting Global Styles.
+
+Sometimes you may need to apply CSS reset styles to your application.
+Chakra UI exports a `CReset` that'll remove browser default styles. It's heavily inspired by [Tailwind's preflight](https://unpkg.com/tailwindcss@1.1.2/dist/base.css)
+
+> 🚨 We highly recommend that you add the `CReset` at the root of your application to ensure all components work correctly.
+
+```js
+import Vue from 'vue'
+import Chakra, { CThemeProvider, CReset } from '@chakra-ui/vue'
+import App from './App.vue'
+
+Vue.use(Chakra)
+
+new Vue({
+  el: '#app',
+  render: (h) => h(CThemeProvider, [h(CReset), h(App)])
+}).$mount()
+```
+
+## Using Chakra components
+
+_In your `App.vue` file._
+
+```vue
+<template>
+  <c-box>
+    <c-button>
+      Chakra Consumed! ⚡️
+    </c-button>
+  </c-box>
+</template>
+
+<script lang="js">
+import { CBox, CButton } from '@chakra-ui/vue'
+
+export default {
+  name: 'App',
+  components: {
+    CBox,
+    CButton
+  }
+}
+</script>
+```
+
+### Codesandbox starters
+
+- [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
+- [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
+
+### Storybook Components
+
+You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!

@@ -1,0 +1,100 @@
+import SEO from '../components/SEO'
+import { CodeGroup, CodeTab } from '~/components/code'
+
+<SEO
+  title="Using UI with Nuxt.js"
+  description="Getting started with Chakra UI and Nuxt.js"
+/>
+
+# Usage with Nuxt.js
+
+💚 We all love Nuxt.js! Getting started with Nuxt.js is also just as simple.
+
+<carbon-ad />
+
+## Installation
+
+With Nuxt.js we need to install the [`@nuxtjs/emotion`](https://github.com/nuxt-community/emotion-module) package to enable your component
+styles to be generated and injected in the server build.
+
+<br/>
+
+> For Nuxt 2.x, Please make sure to install `@nuxtjs/emotion@0.1.0` which supports Nuxt 2.
+
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add @chakra-ui/nuxt @nuxtjs/emotion@0.1.0
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install @chakra-ui/nuxt @nuxtjs/emotion@0.1.0
+  </CodeTab>
+</CodeGroup>
+
+## Registering the Chakra module
+We then register the Chakra UI module in the `modules` key of our `nuxt.config.js`.
+[See the Nuxt documentation to learn more about modules in Nuxt.js](https://nuxtjs.org/guide/modules)
+
+Chakra module options are the same as the Vue CLI plugin options.
+Learn more about the [Chakra plugin options here](/plugin-options).
+
+```js
+export default {
+  modules: [
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion'
+  ],
+  /**
+   * Add extend the plugin options under the `chakra` key.
+   **/
+  chakra: {
+    extendTheme: {
+      colors: {
+        brand: { /* ... */ }
+      }
+    }
+  }
+}
+```
+
+### Finally, setup Chakra's Theme Provider.
+
+We then wrap our layouts in the `layouts/` directory inside the `CThemeProvider` component so that all your
+Chakra UI components can access the theme object.
+
+Great! Now you can start consuming Chakra components!
+
+```vue
+<template>
+  <CThemeProvider>
+    <CReset />
+    <Nuxt />
+    <CButton as="nuxt-link" to="/">
+      ⚡️ Oh, my Nuxt!
+    </CButton>
+  </CThemeProvider>
+</template>
+
+<script>
+import { CThemeProvider, CReset, CButton } from '@chakra-ui/vue'
+
+export default {
+  name: 'DefaultLayout',
+  components: {
+    CThemeProvider,
+    CReset,
+    CButton
+  }
+}
+</script>
+```
+
+### Nuxt codesandbox starters
+
+Here's a link to sample component starter with Nuxt.js
+
+- [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
+
+### Storybook Components
+
+You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!

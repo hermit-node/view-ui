@@ -1,0 +1,12 @@
+html,
+body {
+  margin: 0;
+}
+
+a {
+  color: #3caa79;
+}
+
+.prism-editor__code {
+  padding-top: 16px;
+}
